@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Get Information</h1>
+  <p>
+    <table>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for data in product %}
+        <tr>
+            {% for details in product %}
+                <td>{{details}} </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+  </p> 
+  <br><br>
+  <h1>Order Product</h1> 
+
+   <form action="save_data" method="post">
+    {% csrf_token %}
+        PRODUCT CODE : <input type="text" name="prod_id"> <br><br>
+        QUANTITY :<input type="text" name="prod_qty"><br><br>
+        <input type="submit" value="SAVE">
+   </form>
+</body>
+</html>
